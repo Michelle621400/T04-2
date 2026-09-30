@@ -1,0 +1,522 @@
+/* ============================================
+   WattWise — design tokens
+   Palette drawn from a "power/energy" logo concept.
+   Replace these hex values if you have an official logo to match.
+   ============================================ */
+:root {
+  /* Colours sampled directly from the WattWise power-icon logo */
+  --ink: #3F331E;
+  --ink-deep: #2E2515;
+  --paper: #FBF3D9;
+  --paper-alt: #F8E8A5;
+  --amber: #EBA746;
+  --amber-light: #F2C179;
+  --brown: #7D6744;
+  --teal: #4C8C6B;
+  --ember: #A6522B;
+  --line: #D9C48C;
+
+  --font-head: "Space Grotesk", "Segoe UI", sans-serif;
+  --font-body: "Inter", "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.55;
+}
+
+h1, h2 {
+  font-family: var(--font-head);
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 0 0 0.5em 0;
+}
+
+h1 { font-size: clamp(2rem, 4vw, 2.75rem); }
+h2 { font-size: clamp(1.3rem, 2.5vw, 1.6rem); }
+
+/* Shared eyebrow label + underline accent, used above/below h1
+   on Home and About so their headings match the Televisions page's
+   "Data insights" heading treatment. */
+.eyebrow {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--ember);
+  margin-bottom: 0.6rem;
+}
+
+h1::after {
+  content: "";
+  display: block;
+  width: 72px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--amber), var(--ember));
+  margin-top: 0.75rem;
+  border-radius: 2px;
+}
+
+p { margin: 0 0 1em 0; max-width: 68ch; }
+
+a { color: inherit; }
+
+:focus-visible {
+  outline: 3px solid var(--teal);
+  outline-offset: 2px;
+}
+
+/* ---------- Header / nav ---------- */
+
+.site-header {
+  background: var(--ink-deep);
+  border-bottom: 3px solid var(--amber);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  padding: 0.25rem;
+  border-radius: 6px;
+  transition: transform 0.15s ease;
+}
+
+.logo:hover { transform: translateY(-1px); }
+
+.logo-mark { width: 34px; height: 34px; }
+
+.logo-text {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--paper);
+}
+
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 0.25rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  display: inline-block;
+  text-decoration: none;
+  color: #D9C48C;
+  font-weight: 500;
+  padding: 0.5rem 0.9rem;
+  border-radius: 6px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+}
+
+.nav-link:hover {
+  color: var(--paper);
+  background: rgba(247, 193, 91, 0.12);
+}
+
+.nav-link.active {
+  color: var(--amber-light);
+  border-bottom-color: var(--amber-light);
+  font-weight: 600;
+}
+
+/* ---------- Page sections ---------- */
+
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+.page-intro { max-width: 70ch; color: #3A4150; }
+
+/* ---------- Home: hero ---------- */
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 2.5rem;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.hero-sub { color: #3A4150; font-size: 1.05rem; }
+
+.cta {
+  display: inline-block;
+  margin-top: 0.5rem;
+  background: var(--amber);
+  color: var(--ink-deep);
+  font-weight: 600;
+  padding: 0.75rem 1.4rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.15s ease;
+}
+
+.cta:hover { background: var(--amber-light); }
+
+.hero-art {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.hero-art::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, var(--amber) 0%, transparent 70%);
+  opacity: 0.3;
+  z-index: -1;
+}
+
+.dial { width: 100%; max-width: 260px; }
+.dial-ring { fill: none; stroke: var(--line); stroke-width: 10; }
+.dial-fill { fill: var(--amber); opacity: 0.85; }
+.dial-hub { fill: var(--paper); stroke: var(--ink-deep); stroke-width: 3; }
+.dial-needle line {
+  stroke: var(--ink-deep);
+  stroke-width: 4;
+  stroke-linecap: round;
+  transform-origin: 130px 130px;
+  transform: rotate(-40deg);
+  animation: needle-settle 1.1s ease-out;
+}
+.dial-pin { fill: var(--ember); }
+
+@keyframes needle-settle {
+  from { transform: rotate(-140deg); }
+  to { transform: rotate(-40deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dial-needle line { animation: none; }
+}
+
+/* ---------- Home: quick facts ---------- */
+
+.quick-facts {
+  border-top: 1px solid var(--line);
+  padding-top: 2rem;
+  max-width: 75ch;
+}
+
+.quick-facts ul {
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+}
+
+.quick-facts li {
+  position: relative;
+  padding-left: 1.6rem;
+  margin-bottom: 0.85rem;
+  color: #3A4150;
+}
+
+.quick-facts li::before {
+  position: absolute;
+  left: 0;
+  top: -0.05em;
+  color: var(--amber);
+}
+
+/* ---------- Televisions page ---------- */
+
+/* ---------- Insights intro ---------- */
+
+.insights {
+  text-align: center;
+}
+
+.insights h2 {
+  position: relative;
+  display: inline-block;
+  font-size: clamp(1.7rem, 3.2vw, 2.3rem);
+  margin-top: 0.4rem;
+}
+
+.insights h2::after {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 3px;
+  background: var(--amber);
+  margin: 0.75rem auto 0;
+  border-radius: 2px;
+}
+
+.insights .page-intro {
+  max-width: 58ch;
+  margin: 1.1rem auto 0;
+  font-size: 1.05rem;
+  color: var(--brown);
+}
+
+/* Small meta pills under the intro — a light creative touch */
+.insight-meta {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 1.5rem 0 0;
+}
+
+.meta-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: var(--paper-alt);
+  border: 1px solid var(--line);
+  color: var(--brown);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+}
+
+/* Chart list */
+.chart-grid {
+  display: flex;
+  flex-direction: column;
+  margin: 3rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.chart-card {
+  margin: 0;
+  padding: 2.5rem 0;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.85rem;
+}
+
+.chart-card:last-of-type { border-bottom: none; }
+
+.chart-card h3 {
+  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+  font-weight: 600;
+  margin: 0;
+  color: var(--ink);
+  max-width: 60ch;
+}
+
+.chart-type {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--brown);
+}
+
+.chart-image {
+  width: 100%;
+  max-width: 820px;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  cursor: zoom-in;
+}
+
+/* Two-chart pairs (used for questions with more than one chart type) */
+.chart-pair {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.chart-pair-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1 1 340px;
+  max-width: 420px;
+}
+
+.chart-pair-item .chart-image { max-width: 100%; }
+
+/* Lightbox for click-to-enlarge */
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(46, 37, 21, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease;
+  z-index: 100;
+  cursor: zoom-out;
+}
+
+.lightbox-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.lightbox-img {
+  max-width: 95vw;
+  max-height: 90vh;
+  border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+/* Per-chart finding callout */
+.finding {
+  max-width: 55ch;
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+
+.finding-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-right: 0.4rem;
+}
+
+/* Closing conclusion panel — light card with a bold top accent
+   and a large decorative quote mark, instead of a heavy dark box */
+.conclusion {
+  position: relative;
+  margin: 3rem auto 0;
+  max-width: 600px;
+  padding: 2.25rem 2rem 2rem;
+  background: var(--paper-alt);
+  border-top: 4px solid var(--amber);
+  border-radius: 4px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.conclusion::before {
+  content: "\201C";
+  position: absolute;
+  top: -0.4rem;
+  left: 1rem;
+  font-family: var(--font-head);
+  font-size: 5rem;
+  color: var(--amber);
+  opacity: 0.25;
+  line-height: 1;
+}
+
+.conclusion-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--teal);
+  color: var(--paper);
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+.conclusion-tag {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ember);
+  margin-bottom: 0.75rem;
+}
+
+.conclusion p {
+  position: relative;
+  margin: 0;
+  max-width: none;
+  color: var(--ink);
+  font-family: var(--font-head);
+  font-size: clamp(1.05rem, 1.7vw, 1.3rem);
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+
+/* ---------- About page ---------- */
+
+.credits {
+  border-top: 1px solid var(--line);
+  padding-top: 2rem;
+  max-width: 75ch;
+}
+
+.credits p { color: #3A4150; }
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  background: var(--ink-deep);
+  color: #D9C48C;
+  text-align: center;
+  padding: 1.25rem 1.5rem;
+  font-size: 0.9rem;
+}
+
+.site-footer p {
+  max-width: none;
+  margin: 0;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 720px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-art { order: -1; }
+  .main-nav ul { gap: 0; }
+  .nav-link { padding: 0.5rem 0.6rem; font-size: 0.95rem; }
+}

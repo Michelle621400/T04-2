@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WattWise — Televisions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo" aria-label="WattWise home">
+      <img src="PowerIcon.png" alt="" class="logo-mark">
+      <span class="logo-text">WattWise</span>
+    </a>
+
+    <nav class="main-nav" aria-label="Main">
+      <ul>
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="televisions.html" class="nav-link">Televisions</a></li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <div class="insights">
+    <span class="eyebrow">Televisions</span>
+    <h2>Data insights from the ENERGY RATING registration dataset</h2>
+    <p class="page-intro">The charts below were built in KNIME from the television registration dataset, investigating seven questions about the Australian market.</p>
+
+    <div class="insight-meta">
+      <span class="meta-pill">❓ 7 questions</span>
+      <span class="meta-pill">🛠 Built in KNIME</span>
+    </div>
+
+    <div class="chart-grid">
+
+      <figure class="chart-card">
+        <h3>1. What screen technologies are available in Australia, and which are most frequent?</h3>
+        <div class="chart-pair">
+          <div class="chart-pair-item">
+            <img src="Images/Q1 Pie Chart.png" alt="Pie chart of television count by screen technology" class="chart-image">
+            <span class="chart-type">Pie chart</span>
+          </div>
+          <div class="chart-pair-item">
+            <img src="Images/Q1 Bar Chart.png" alt="Bar chart of television count by screen technology" class="chart-image">
+            <span class="chart-type">Bar chart</span>
+          </div>
+        </div>
+        <p class="finding"><span class="finding-tag">Insight</span> Most TVs use LCD (LED) screens; OLED is rare.</p>
+      </figure>
+
+      <figure class="chart-card">
+        <h3>2. What screen sizes are available, and which are most frequent?</h3>
+        <img src="Images/Q2 Bar Chart.png" alt="Bar chart of television count by screen size" class="chart-image">
+        <span class="chart-type">Bar chart</span>
+        <p class="finding"><span class="finding-tag">Insight</span> 65-inch and 55-inch are the most common sizes.</p>
+      </figure>
+
+      <figure class="chart-card">
+        <h3>3. Which brands have the largest number of models?</h3>
+        <img src="Images/Q3 Bar Chart.png" alt="Bar chart of number of models per brand" class="chart-image">
+        <span class="chart-type">Bar chart</span>
+        <p class="finding"><span class="finding-tag">Insight</span> Kogan, LG, and Samsung Electronics lead in number of models.</p>
+      </figure>
+
+      <figure class="chart-card">
+        <h3>4. Which screen technology consumes the least power?</h3>
+        <img src="Images/Q4 Bar Chart.png" alt="Bar chart of median power use by screen technology" class="chart-image">
+        <span class="chart-type">Bar chart</span>
+        <p class="finding"><span class="finding-tag">Insight</span> LCD uses the least power; LCD (LED) and OLED use more, with OLED slightly highest.</p>
+      </figure>
+
+      <figure class="chart-card">
+        <h3>5. What is the relationship between screen size and power use?</h3>
+        <img src="Images/Q5 Scatter Plot.png" alt="Scatter plot of screen size against power use" class="chart-image">
+        <span class="chart-type">Scatter plot</span>
+        <p class="finding"><span class="finding-tag">Insight</span> Bigger TVs use more power — this pattern is consistent across sizes.</p>
+      </figure>
+
+      <figure class="chart-card">
+        <h3>6. What is the relationship between star rating and screen size?</h3>
+        <img src="Images/Q6 Scatter Plot.png" alt="Scatter plot of screen size against star rating" class="chart-image">
+        <span class="chart-type">Scatter plot</span>
+        <p class="finding"><span class="finding-tag">Insight</span> Star ratings vary widely at every size, so even large TVs can be efficient.</p>
+      </figure>
+
+      <figure class="chart-card">
+        <h3>7. Are there differences in power consumption between brands?</h3>
+        <div class="chart-pair">
+          <div class="chart-pair-item">
+            <img src="Images/Q7 Box Plot.png" alt="Box plot of power consumption by brand" class="chart-image">
+            <span class="chart-type">Box plot</span>
+          </div>
+          <div class="chart-pair-item">
+            <img src="Images/Q7 Bar Chart.png" alt="Bar chart of power consumption by brand" class="chart-image">
+            <span class="chart-type">Bar chart</span>
+          </div>
+        </div>
+      </figure>
+
+    </div>
+
+    <div class="conclusion">
+      <span class="conclusion-tag">Conclusion</span>
+      <p>A 55-inch LED TV balances popularity, power draw, and efficiency well — making it a smart, well-rounded choice.</p>
+    </div>
+
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <p>© <span id="year"></span> Michelle Mei Xuan TAN — Content and code produced with the assistance of Claude (Anthropic).</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
