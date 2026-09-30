@@ -520,3 +520,9 @@ main {
   .main-nav ul { gap: 0; }
   .nav-link { padding: 0.5rem 0.6rem; font-size: 0.95rem; }
 }
+
+.responsive-svg-container {
+margin: 0 auto; /* center */
+width: 100%; /* fill parent width */
+max-width: 1200px; /* cap max width */
+}

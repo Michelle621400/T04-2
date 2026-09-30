@@ -28,16 +28,14 @@
   </div>
 </header>
 
-<body>
-...
 </header>
-<h1>Appliance Energy Consumption</h1>
-<div id="content"></div>
-<!-- Give the SVG a size so shapes can be seen -->
-<svg width="300" height="150"></svg>
-<!-- Load D3 first, then your D3 code file -->
-<script src="https://d3js.org/d3.v7.min.js"></script>
-<script src="energy-d3.js"></script>
+  <h1>Appliance Energy Consumption</h1>
+  <div id="content"></div>
+  <!-- Give the SVG a size so shapes can be seen -->
+  <svg width="300" height="150"></svg>
+  <!-- Load D3 first, then your D3 code file -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="energy-d3.js"></script>
 </body>
 
 <main>
@@ -71,12 +69,19 @@
     </ul>
   </div>
 
+  <div class="responsive-svg-container"></div>
+
 </main>
 
 <footer class="site-footer">
   <p>© <span id="year"></span> Michelle Mei Xuan TAN — Content and code produced with the assistance of Claude (Anthropic).</p>
 </footer>
 
-<script src="script.js"></script>
+<!-- D3 library -->
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<!-- NEW: JS for T04-3 only -->
+<script src="t04-3-bars.js"></script>
+<!-- Old T04-2 demo (temporarily disabled) -->
+<!-- <script src="energy-d3.js"></script> -->
 </body>
 </html>
